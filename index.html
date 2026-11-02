@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo: Combate ao Desperdício de Alimentos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Tela de Apresentação -->
+        <div id="screen-start" class="screen active">
+            <h1>Combate ao Desperdício de Alimentos</h1>
+            <p class="credits">Matemática II | Equipe: Vinícius Sieben (nº 39) & Gabriel Langue (nº 14)</p>
+            
+            <div class="rules-box">
+                <h3>Regras do Jogo:</h3>
+                <ul>
+                    <li>Você começa com <strong>50 pontos</strong>.</li>
+                    <li><strong>Opção Boa:</strong> +5 pontos</li>
+                    <li><strong>Opção Neutra:</strong> 0 pontos</li>
+                    <li><strong>Opção Ruim:</strong> -5 pontos</li>
+                    <li>Se a pontuação cair para <strong>30 ou menos</strong>: <em>GAME OVER</em>!</li>
+                    <li>Responda às 9 questões para descobrir seu impacto final.</li>
+                </ul>
+            </div>
+            
+            <button id="btn-start" class="btn">Começar Jogo</button>
+        </div>
+
+        <!-- Tela do Jogo (Questões) -->
+        <div id="screen-game" class="screen">
+            <div class="header-status">
+                <span id="question-number">Questão 1 de 9</span>
+                <span id="score-display">Pontos: 50</span>
+            </div>
+
+            <div class="progress-bar-container">
+                <div id="progress-bar" style="width: 50%;"></div>
+            </div>
+
+            <h2 id="question-text">Texto da pergunta aqui...</h2>
+
+            <div class="options-container">
+                <button class="option-btn green" onclick="responder(1)">
+                    <span class="tag">Boa (+5)</span>
+                    <span id="opt-1-text">Opção A</span>
+                </button>
+                <button class="option-btn purple" onclick="responder(2)">
+                    <span class="tag">Neutra (0)</span>
+                    <span id="opt-2-text">Opção B</span>
+                </button>
+                <button class="option-btn orange" onclick="responder(3)">
+                    <span class="tag">Ruim (-5)</span>
+                    <span id="opt-3-text">Opção C</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Tela de Fim de Jogo (Resultados ou Game Over) -->
+        <div id="screen-end" class="screen">
+            <h1 id="end-title">Fim de Jogo</h1>
+            <h2 id="final-score">Pontuação Final: 50 pontos</h2>
+            <div id="end-message" class="message-box">Mensagem...</div>
+            <button class="btn" onclick="reiniciarJogo()">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
