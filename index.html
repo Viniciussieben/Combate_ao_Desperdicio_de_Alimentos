@@ -17,11 +17,10 @@
                 <h3>Regras do Jogo:</h3>
                 <ul>
                     <li>Você começa com <strong>50 pontos</strong>.</li>
-                    <li><strong>Opção Boa:</strong> +5 pontos</li>
-                    <li><strong>Opção Neutra:</strong> 0 pontos</li>
-                    <li><strong>Opção Ruim:</strong> -5 pontos</li>
-                    <li>Se a pontuação cair para <strong>30 ou menos</strong>: <em>GAME OVER</em>!</li>
-                    <li>Responda às 9 questões para descobrir seu impacto final.</li>
+                        <li>Cada escolha altera sua pontuação em +5, 0 ou -5 pontos.</li>
+                        <li>Se a pontuação cair para <strong>30 ou menos</strong>: <em>GAME OVER</em>!</li>
+                        <li>Após cada escolha, veja a consequência antes de continuar.</li>
+                        <li>Responda às 9 questões para descobrir seu impacto final.</li>
                 </ul>
             </div>
             
@@ -32,7 +31,7 @@
         <div id="screen-game" class="screen">
             <div class="header-status">
                 <span id="question-number">Questão 1 de 9</span>
-                <span id="score-display">Pontos: 50</span>
+                <span id="score-display" aria-live="polite" hidden></span>
             </div>
 
             <div class="progress-bar-container">
@@ -41,19 +40,22 @@
 
             <h2 id="question-text">Texto da pergunta aqui...</h2>
 
-            <div class="options-container">
-                <button class="option-btn green" onclick="responder(1)">
-                    <span class="tag">Boa (+5)</span>
+            <div id="options-container" class="options-container">
+                <button class="option-btn" onclick="responder(1)">
                     <span id="opt-1-text">Opção A</span>
                 </button>
-                <button class="option-btn purple" onclick="responder(2)">
-                    <span class="tag">Neutra (0)</span>
+                <button class="option-btn" onclick="responder(2)">
                     <span id="opt-2-text">Opção B</span>
                 </button>
-                <button class="option-btn orange" onclick="responder(3)">
-                    <span class="tag">Ruim (-5)</span>
+                <button class="option-btn" onclick="responder(3)">
                     <span id="opt-3-text">Opção C</span>
                 </button>
+            </div>
+
+            <div id="answer-feedback" class="message-box" aria-live="polite" hidden>
+                <h3>Consequência da sua escolha</h3>
+                <p id="consequence-text"></p>
+                <button id="btn-continue" class="btn" onclick="continuarJogo()">Próxima pergunta</button>
             </div>
         </div>
 
